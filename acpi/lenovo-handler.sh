@@ -12,7 +12,7 @@ case "$1" in
   video/brightnessup) /home/thib/.scripts/lenovo-brightness up;;
   button/volumedown) for i in $(sudo -u thib -E pacmd list-sinks | grep index | sed 's/[^0-9]//g'); do echo "$i"; sudo -u thib -E pactl set-sink-volume "$i" -5%; done;;
   button/volumeup) for i in $(sudo -u thib -E pacmd list-sinks | grep index | sed 's/[^0-9]//g'); do sudo -u thib -E pactl set-sink-volume "$i" +5%; done;;
-  button/mute) for i in $(sudo -u thib -E pacmd list-sinks | grep index | sed 's/[^0-9]//g'); do sudo -u thib -E pactl set-sink-mute "$i" -- toggle; done;;
+  button/mute) for i in $(sudo -u thib -E pacmd list-sinks | grep index | sed 's/[^0-9]//g'); do sudo -u thib -E pactl set-sink-mute "$i" toggle; done;;
   button/sleep) sudo -u thib -E xscreensaver-command --lock;;
   cd/play) sudo -u thib -E mpc toggle;;
   cd/next) sudo -u thib -E mpc next;;
